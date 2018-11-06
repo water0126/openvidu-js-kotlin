@@ -1,0 +1,32 @@
+#
+# server(local properties)
+#
+server:
+  port: 8083
+  tomcat:
+    max-threads: 2000
+    accept-count: 2000
+    max-connections: 4000
+    min-spare-threads: 25
+    connection-timeout: 5000
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  redis:
+    host: localhost
+    port: 6379
+  datasource:
+    url: jdbc:mysql:replication://localhost:3306,localhost:3306/openvidu?useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true
+    username: root
+    password: qwe123
+    sqlScriptEncoding: UTF-8
+    testOnBorrow: true
+
+
+
+
+
+
+
