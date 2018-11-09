@@ -1,17 +1,14 @@
 package com.interwater.kotlin.demo.controller
 
-import com.google.gson.Gson
 import com.interwater.kotlin.demo.model.User
 import com.interwater.kotlin.demo.repository.UserRepository
 import com.interwater.kotlin.demo.util.Log
 import org.slf4j.Logger
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.web.bind.annotation.*
 import java.security.Principal
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-
 
 
 @RestController
@@ -34,7 +31,6 @@ class UserController(private val userRepository: UserRepository) {
         val encoder = BCryptPasswordEncoder(16)
         val result = encoder.encode(user.password)
         userRepository.save(User(username = user.username, password = result))
-        log.info("gdlkgjdfkghldhg")
         return ResponseEntity.ok("created")
     }
 }

@@ -23,8 +23,12 @@ spring:
     password: qwe123
     sqlScriptEncoding: UTF-8
     testOnBorrow: true
-
-
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+openvidu:
+  url: https://localhost:4333
+  secret: interwater
 
 
 

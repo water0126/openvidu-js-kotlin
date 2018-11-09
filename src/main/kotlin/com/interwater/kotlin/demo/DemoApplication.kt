@@ -12,11 +12,3 @@ class DemoApplication
 fun main(args: Array<String>) {
     runApplication<DemoApplication>(*args)
 }
-
-@Bean
-fun registerOpenSessionInViewFilterBean(): FilterRegistrationBean<*> {
-    val filter = OpenSessionInViewFilter()
-    val registrationBean = FilterRegistrationBean(filter)
-    registrationBean.order = 5
-    return registrationBean
-}
