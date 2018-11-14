@@ -19,10 +19,6 @@ data class User(@Column(name = "username")
     @Column(name = "id")
     var id: Long = 0
 
-    @Column(name = "remember_me")
-    @JsonProperty("remeber_me")
-    var rememberMe: Boolean? = false
-
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     @Column(name = "created_time", updatable = false)
     var createdTime: Date = Date()

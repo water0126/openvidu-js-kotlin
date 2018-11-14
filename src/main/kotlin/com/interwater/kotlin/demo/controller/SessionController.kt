@@ -40,8 +40,8 @@ class SessionController {
      */
     @GetMapping
     @ResponseBody
-    fun joinSession(authentication: Authentication, @RequestParam(name = "data") clientData: String,
-                    @RequestParam(name = "session-name") sessionName: String): ResponseResult {
+    fun joinSession(authentication: Authentication, @RequestParam(name = "nickName") clientData: String,
+                    @RequestParam(name = "sessionName") sessionName: String): ResponseResult {
         val role = OpenViduRole.PUBLISHER
         val serverData = "{\"serverData\": \"" + authentication.principal + "\"}"
         val tokenOptions = TokenOptions.Builder().data(serverData).role(role).build()
@@ -66,6 +66,7 @@ class SessionController {
                 this.mapSessionNamesTokens[sessionName] = mutableMapOf(token to role)
                 return ResponseResult(mutableMapOf<String, String>("sessionName" to sessionName, "token" to token, "nickName" to clientData, "userName" to authentication.principal.toString()))
             } catch (e: Exception) {
+                e.printStackTrace();
                 return ResponseResult(500, "error")
             }
 

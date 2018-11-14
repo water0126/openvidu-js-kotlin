@@ -27,7 +27,7 @@ spring:
       test-while-idle: true
       validation-query: SELECT 1
 openvidu:
-  url: https://localhost:4333
+  url: https://127.0.0.1:4443
   secret: interwater
 
 

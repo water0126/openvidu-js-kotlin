@@ -1,8 +1,6 @@
 package com.interwater.kotlin.demo.controller
 
-import com.interwater.kotlin.demo.jwt.JWTUtils
 import com.interwater.kotlin.demo.model.ResponseResult
-import com.interwater.kotlin.demo.model.User
 import com.interwater.kotlin.demo.service.HelloService
 import com.interwater.kotlin.demo.service.SecurityUserDetailsService
 import com.interwater.kotlin.demo.util.Log

@@ -11,7 +11,6 @@ import org.springframework.security.core.Authentication
 import org.springframework.security.core.AuthenticationException
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import java.io.IOException
-import java.util.*
 import javax.servlet.FilterChain
 import javax.servlet.ServletException
 import javax.servlet.http.HttpServletRequest
@@ -22,11 +21,8 @@ import javax.servlet.http.HttpServletResponse
  */
 
 class JWTAuthenticationFilter : UsernamePasswordAuthenticationFilter {
-    private val rememberMe: ThreadLocal<Boolean>
-
     constructor(authenticationManager: AuthenticationManager) : super() {
         this.authenticationManager = authenticationManager
-        this.rememberMe = ThreadLocal<Boolean>()
         super.setFilterProcessesUrl("/auth/login")
     }
 
@@ -34,16 +30,12 @@ class JWTAuthenticationFilter : UsernamePasswordAuthenticationFilter {
     override fun attemptAuthentication(request: HttpServletRequest,
                                        response: HttpServletResponse?): Authentication? {
 
-        // 从输入流中获取到登录的信息
         try {
+            println(request.method)
             val loginUser = ObjectMapper().readValue(request.inputStream, User::class.java)
-            println("-------");
             println(loginUser.username);
             println(loginUser.password);
-            println(loginUser.rememberMe);
             println(authenticationManager);
-            println("-------");
-            rememberMe.set(loginUser.rememberMe)
             return authenticationManager.authenticate(
                     UsernamePasswordAuthenticationToken(loginUser.username, loginUser.password)
             )
@@ -60,17 +52,15 @@ class JWTAuthenticationFilter : UsernamePasswordAuthenticationFilter {
                                           chain: FilterChain?,
                                           authResult: Authentication) {
         val securityUserDetails = (authResult.principal as SecurityUserDetails)
-        System.out.println("jwtUser:" + securityUserDetails.toString())
-        val isRemember = rememberMe.get() == true
-
         var role = ""
+        var loginName = ""
         val authorities = securityUserDetails.getAuthorities()
         for (authority in authorities) {
             role = authority.getAuthority()
         }
 
-        val token = JwtTokenUtils.createToken(securityUserDetails.getUsername(), role, isRemember)
-        Gson().toJson(ResponseResult(hashMapOf("token" to JwtTokenUtils.TOKEN_PREFIX + token)), response.writer)
+        val token = JwtTokenUtils.createToken(securityUserDetails.getUsername(), role)
+        Gson().toJson(ResponseResult(hashMapOf("token" to JwtTokenUtils.TOKEN_PREFIX + token, "loginName" to securityUserDetails.user.username)), response.writer)
         response.setHeader("token", JwtTokenUtils.TOKEN_PREFIX + token)
     }
 
