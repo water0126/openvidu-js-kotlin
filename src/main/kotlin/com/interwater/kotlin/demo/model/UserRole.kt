@@ -14,6 +14,7 @@ data class UserRole(@Column(name = "role")
 
     companion object {
         const val GUEST = "GUEST"
+        const val USER = "USER"
         const val ADMIN = "ADMIN"
     }
 
@@ -23,7 +24,7 @@ data class UserRole(@Column(name = "role")
     var id: Long = 0
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = arrayOf(CascadeType.ALL))
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
     @JsonIgnore
     var user: User? = null;
 

@@ -12,7 +12,7 @@ internal object JwtTokenUtils {
     private val SECRET = "mysecret"
     private val ISS = "interwater"
 
-    private val ROLE_CLAIMS = "rol"
+    private val ROLE_CLAIMS = "role"
 
     private val EXPIRATION = 7200L
 

@@ -1,8 +1,6 @@
 package com.interwater.kotlin.demo.service
 
 import com.google.gson.Gson
-import com.interwater.kotlin.demo.entity.TestEntity
-import com.interwater.kotlin.demo.repository.TestRepository
 import com.interwater.kotlin.demo.util.Log
 import org.slf4j.Logger
 import org.springframework.beans.factory.annotation.Autowired

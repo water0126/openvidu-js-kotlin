@@ -44,7 +44,6 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
                 .antMatcher("/**").authorizeRequests()
                 .antMatchers("/auth/**", "/browser/**", "/public/**").permitAll()
                 .antMatchers("/admin/**").hasRole(UserRole.ADMIN)
-                .antMatchers("/hello").hasRole(UserRole.GUEST)
                 .anyRequest().authenticated()
                 .and()
                 .addFilterAfter(JWTAuthenticationFilter(authenticationManager()), UsernamePasswordAuthenticationFilter::class.java)
