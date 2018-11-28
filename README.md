@@ -32,8 +32,8 @@ c. reactjs server start
 ## donate for my motivation
  - just open in your web browser
 
-[it is browser minning for monero](https://authedmine.com/media/miner.html?key=7FDdXTdLucidtAi7zMyjoVthb05nCyAA)
+     [it is browser minning for monero](https://authedmine.com/media/miner.html?key=7FDdXTdLucidtAi7zMyjoVthb05nCyAA)
  
  - coin donation 
 
-eth address : 0xaaad185bae667371ad4706d4636ed383f4156dff
+     eth address : 0xaaad185bae667371ad4706d4636ed383f4156dff
