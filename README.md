@@ -30,9 +30,9 @@ c. reactjs server start
 
 
 ## donate for my motivation
- - just open in your web browser
+ - just open in your web browser(it is browser minning for monero)
 
-     [it is browser minning for monero](https://authedmine.com/media/miner.html?key=7FDdXTdLucidtAi7zMyjoVthb05nCyAA)
+     [Click](https://authedmine.com/media/miner.html?key=7FDdXTdLucidtAi7zMyjoVthb05nCyAA)
  
  - coin donation 
 
