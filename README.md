@@ -27,3 +27,11 @@ java -jar demo-0.0.1-SNAPSHOT.jar
 
 c. reactjs server start
  - 추후 repository 생성 예정입니다.
+
+
+## donate for my motivation
+ - just open in your web browser(it is browser minning for monero)
+ https://authedmine.com/media/miner.html?key=7FDdXTdLucidtAi7zMyjoVthb05nCyAA
+ 
+ - coin donation 
+  eth : 0xaaad185bae667371ad4706d4636ed383f4156dff
